@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Licence%20devops/JEE/JeeProject/jeeProject/web/menu.jsp</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/web/confirm.jsp</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/web/recherche.jsp</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/web/form_inscription.jsp</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/src/java/servlets/Controleur.java</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/web/resultat.jsp</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/src/java/modele/MagasinHelper.java</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/web/index.jsp</file>
+            <file>file:/C:/Users/Siong/git/jeeProject/src/java/modele/HibernateUtil.java</file>
         </group>
     </open-files>
 </project-private>
