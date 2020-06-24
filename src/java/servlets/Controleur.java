@@ -49,7 +49,7 @@ public class Controleur extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("menu.jsp");
+        response.sendRedirect("login.jsp");
        
     }
 
@@ -65,7 +65,7 @@ public class Controleur extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("menu.jsp");
+        response.sendRedirect("login.jsp");
     }
 
     /**
@@ -79,7 +79,8 @@ public class Controleur extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        switch(request.getParameter("Operation")){
+        response.sendRedirect("menu.jsp");
+        /*switch(request.getParameter("Operation")){
             case "Afficher tous les enregistrements" :
                 try{
                 requeteur=new MagasinHelper();
@@ -201,7 +202,7 @@ public class Controleur extends HttpServlet {
                     request.setAttribute("erreur", "erreur requete "+e);
                     request.getRequestDispatcher("error.jsp").forward(request,response);
                 };
-        }           
+        }     */      
     }
     
 
