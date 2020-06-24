@@ -12,7 +12,7 @@
 <html>
      <%@include file="./header.jsp"%>
     <head>  
-        <title>Gestion de client</title>     
+        <title>Gestion de Produit</title>     
     </head>
     <body>
         <div class="row justify-content-md-center mt-4">
@@ -38,9 +38,9 @@
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nom</th>
-                    <th scope="col">Code postale</th>
+                    <th scope="col">Zip</th>
                     <th scope="col">Adresse</th>
-                    <th scope="col">Code Remise</th>
+                    <th scope="col">Code</th>
                     <th scope="col">Email</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -48,7 +48,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                        <%List <Object> res=resultat.getResult();
+                        <%    List <Object> res=resultat.getResult();
                             for(Object  ligne : res){
                          out.println("<TR>");           
                          out.println("<TD> <input type=submit value="+String.valueOf(((Customer)ligne).getCustomerId())+" name=Operation /></TD>");
@@ -61,12 +61,13 @@
                          out.println("<TD>"+((Customer)resultat.getResult().get(i)).getName()+"</TD>");
                          out.println("<TD>"+((Customer)resultat.getResult().get(i)).getDiscountCode().getRate()+"</TD>");*/
                         %>
-                       <td><button type="submit" class="btn btn-outline-warning"><span class="glyphicon glyphicon-cog"></span> </button></td>
+                       <td><button type="button" class="btn btn-outline-warning"><span class="glyphicon glyphicon-cog"></span> </button></td>
                        <td><button type="button" class="btn btn-outline-danger"><span class="glyphicon glyphicon-trash"></span> </button></td>   
                       <%
                           out.println("</TR>");
                      } %>
-              
+            
+                                 
                   </tr>    
                 </tbody>
                 </table>
