@@ -12,21 +12,22 @@
         <title>Login</title>
     </head>
     <body>
-        <h1>Login</h1>
-        <form action="j_security_check" method="post">
-            <table style="with: 50%">
-		<tbody>
-                <tr>
-                    <td>ID</td>
-                    <td><input type="text" name="j_username"></td>
-		</tr>
-		<tr>    
-                    <td>Password</td>
-                    <td><input type="password" name="j_password"></td>
-		</tr>
-                </tbody>
-            </table>
-            <input type="submit" value="Submit">
-        </form>
+         <div class="row justify-content-md-center">
+            <div class="col-12 ">
+                <h1>Login</h1>
+                
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">ID</label>
+                      <input type="text" class="form-control" name="j_username">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" name="j_password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

@@ -49,7 +49,7 @@ public class Controleur extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("menu.jsp");
        
     }
 
@@ -65,7 +65,7 @@ public class Controleur extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("menu.jsp");
     }
 
     /**
@@ -79,8 +79,8 @@ public class Controleur extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("menu.jsp");
-        /*switch(request.getParameter("Operation")){
+//        response.sendRedirect("menu.jsp");
+        switch(request.getParameter("Operation")){
             case "Afficher tous les enregistrements" :
                 try{
                 requeteur=new MagasinHelper();
@@ -102,7 +102,7 @@ public class Controleur extends HttpServlet {
                     b.setResult(requeteur.getMicroMarket());
                    request.setAttribute("dc",a);
                     request.setAttribute("cp",b);
-                    request.getRequestDispatcher("form_inscription.jsp").forward(request,response);
+                    request.getRequestDispatcher("AddCustomer.jsp").forward(request,response);
                 }         
                 catch (SQLException e){
                 request.setAttribute("erreur", "erreur requete "+e);
@@ -202,7 +202,7 @@ public class Controleur extends HttpServlet {
                     request.setAttribute("erreur", "erreur requete "+e);
                     request.getRequestDispatcher("error.jsp").forward(request,response);
                 };
-        }     */      
+        }           
     }
     
 
