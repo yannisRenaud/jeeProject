@@ -15,6 +15,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,7 +50,7 @@ public class Controleur extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("menu.jsp");
        
     }
 
@@ -65,7 +66,7 @@ public class Controleur extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("menu.jsp");
     }
 
     /**
@@ -76,133 +77,137 @@ public class Controleur extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("menu.jsp");
-        /*switch(request.getParameter("Operation")){
+//            requeteur=new MagasinHelper();           
+//            
+//            request.setAttribute("clients", requeteur.getClients());
+//            request.getRequestDispatcher("resultat.jsp");
+            switch(request.getParameter("Operation")){
             case "Afficher tous les enregistrements" :
-                try{
-                requeteur=new MagasinHelper();
-                resultatrequete a = new resultatrequete();
-                a.setResult(requeteur.getClients());
-                request.setAttribute("resultat",a);//déclaration de mon javabean dans mes paramètres POST
-                request.getRequestDispatcher("resultat.jsp").forward(request,response);//renvoie mon résultat à la page resultat.jsp affichée par le navigateur client
-                }
-                catch (SQLException e){
-                    e.printStackTrace();
-                }
+            try{
+            requeteur=new MagasinHelper();
+            resultatrequete a = new resultatrequete();
+            a.setResult(requeteur.getClients());
+            request.setAttribute("resultat",a);//déclaration de mon javabean dans mes paramètres POST
+            request.getRequestDispatcher("resultat.jsp").forward(request,response);//renvoie mon résultat à la page resultat.jsp affichée par le navigateur client
+            }
+            catch (SQLException e){
+            e.printStackTrace();
+            }
             break;
             case "inserer un enregistrement" :
-                try{
-                    requeteur=new MagasinHelper();
-                    resultatrequete a = new resultatrequete();
-                    resultatrequete b = new resultatrequete();
-                   a.setResult(requeteur.getDiscountCode());
-                    b.setResult(requeteur.getMicroMarket());
-                   request.setAttribute("dc",a);
-                    request.setAttribute("cp",b);
-                    request.getRequestDispatcher("form_inscription.jsp").forward(request,response);
-                }         
-                catch (SQLException e){
-                request.setAttribute("erreur", "erreur requete "+e);
-                request.getRequestDispatcher("error.jsp").forward(request,response);
-                };
+            try{
+            requeteur=new MagasinHelper();
+            resultatrequete a = new resultatrequete();
+            resultatrequete b = new resultatrequete();
+            a.setResult(requeteur.getDiscountCode());
+            b.setResult(requeteur.getMicroMarket());
+            request.setAttribute("dc",a);
+            request.setAttribute("cp",b);
+            request.getRequestDispatcher("form_inscription.jsp").forward(request,response);
+            }
+            catch (SQLException e){
+            request.setAttribute("erreur", "erreur requete "+e);
+            request.getRequestDispatcher("error.jsp").forward(request,response);
+            };
             break;
             case "Enregistrer" :
-                try{
-                requeteur=new MagasinHelper();
-                String param1 = request.getParameter("nom");
-                String param2 = request.getParameter("adresse");
-                String param3 = request.getParameter("telephone");
-                String param4 = request.getParameter("email");
-                String param5 = request.getParameter("code_remise");
-                String param6 = request.getParameter("CP");
-                requeteur.insertCustomer(30000, param5.charAt(0), param6);
-                }
-                catch (Exception e){
-                request.setAttribute("erreur", "erreur requete "+e);
-                request.getRequestDispatcher("error.jsp").forward(request,response);
-                };
-                request.setAttribute("confirm", "Enregistrement effectué");
-                request.getRequestDispatcher("confirm.jsp").forward(request,response);
-                break;
-               
-           case "Modifier" :
-                try{
-                requeteur=new MagasinHelper();
-                String param1 = request.getParameter("numero");
-                String param2 = request.getParameter("nom");
-                String param3 = request.getParameter("adresse");
-                String param4 = request.getParameter("telephone");
-                Character param5 = request.getParameter("Remise").charAt(0);
-                String param6 = request.getParameter("Code_Postal");
-                requeteur.updateCustomer(Integer.parseInt(param1),param2,param3,param4,param5,param6);
-               
-                }
-                catch (Exception e){
-                    request.setAttribute("erreur", "erreur requete "+e);
-                    request.getRequestDispatcher("error.jsp").forward(request,response);
-                };
-                request.setAttribute("confirm", "Modification effectuée");
-                request.getRequestDispatcher("confirm.jsp").forward(request,response);
+            try{
+            requeteur=new MagasinHelper();
+            String param1 = request.getParameter("nom");
+            String param2 = request.getParameter("adresse");
+            String param3 = request.getParameter("telephone");
+            String param4 = request.getParameter("email");
+            String param5 = request.getParameter("code_remise");
+            String param6 = request.getParameter("CP");
+            requeteur.insertCustomer(30000, param5.charAt(0), param6);
+            }
+            catch (Exception e){
+            request.setAttribute("erreur", "erreur requete "+e);
+            request.getRequestDispatcher("error.jsp").forward(request,response);
+            };
+            request.setAttribute("confirm", "Enregistrement effectué");
+            request.getRequestDispatcher("confirm.jsp").forward(request,response);
+            break;
+            
+            case "Modifier" :
+            try{
+            requeteur=new MagasinHelper();
+            String param1 = request.getParameter("numero");
+            String param2 = request.getParameter("nom");
+            String param3 = request.getParameter("adresse");
+            String param4 = request.getParameter("telephone");
+            Character param5 = request.getParameter("Remise").charAt(0);
+            String param6 = request.getParameter("Code_Postal");
+            requeteur.updateCustomer(Integer.parseInt(param1),param2,param3,param4,param5,param6);
+            
+            }
+            catch (Exception e){
+            request.setAttribute("erreur", "erreur requete "+e);
+            request.getRequestDispatcher("error.jsp").forward(request,response);
+            };
+            request.setAttribute("confirm", "Modification effectuée");
+            request.getRequestDispatcher("confirm.jsp").forward(request,response);
             break;
             case "Supprimer" :
-                try{
-                requeteur=new MagasinHelper();
-                String param1=request.getParameter("numero");
-               requeteur.deleteCustomer(Integer.parseInt(param1));
-               
-                }
-                catch (Exception e){
-                    request.setAttribute("erreur", "erreur requete "+e);
-                    request.getRequestDispatcher("error.jsp").forward(request,response);
-                };                
-                request.setAttribute("confirm", "Suppression effectuée");//message de confirmation de suppression envoyé à la jsp
-                request.getRequestDispatcher("confirm.jsp").forward(request,response);
+            try{
+            requeteur=new MagasinHelper();
+            String param1=request.getParameter("numero");
+            requeteur.deleteCustomer(Integer.parseInt(param1));
+            
+            }
+            catch (Exception e){
+            request.setAttribute("erreur", "erreur requete "+e);
+            request.getRequestDispatcher("error.jsp").forward(request,response);
+            };
+            request.setAttribute("confirm", "Suppression effectuée");//message de confirmation de suppression envoyé à la jsp
+            request.getRequestDispatcher("confirm.jsp").forward(request,response);
             break;
-           case "Afficher les achats" :
-                try{
-                   try{
-                requeteur=new MagasinHelper();
-                resultatrequete a = new resultatrequete();
-                a.setResult(requeteur.getAchats(Integer.parseInt(request.getParameter("numero"))));
-                request.setAttribute("resultat",a);//déclaration de mon javabean dans mes paramètres POST
-                request.getRequestDispatcher("achats.jsp").forward(request,response);//renvoie mon résultat à la page resultat.jsp affichée par le navigateur client
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-                    
-                }
-                catch (Exception e){
-                    request.setAttribute("erreur", "erreur requete "+e);
-                    request.getRequestDispatcher("error.jsp").forward(request,response);
-                };
-                break;
-               
-                
-              
+            case "Afficher les achats" :
+            try{
+            try{
+            requeteur=new MagasinHelper();
+            resultatrequete a = new resultatrequete();
+            a.setResult(requeteur.getAchats(Integer.parseInt(request.getParameter("numero"))));
+            request.setAttribute("resultat",a);//déclaration de mon javabean dans mes paramètres POST
+            request.getRequestDispatcher("achats.jsp").forward(request,response);//renvoie mon résultat à la page resultat.jsp affichée par le navigateur client
+            }
+            catch (Exception e){
+            e.printStackTrace();
+            }
+            
+            }
+            catch (Exception e){
+            request.setAttribute("erreur", "erreur requete "+e);
+            request.getRequestDispatcher("error.jsp").forward(request,response);
+            };
+            break;
+            
+            
+            
             default ://cas où la variable Operation envoyée par les jsp prend la valeur d'un numéro de client
-                try{
-                    requeteur=new MagasinHelper();
-                    resultatrequete a = new resultatrequete();
-                    a.setClient(requeteur.getClient(Integer.parseInt(request.getParameter("Operation"))));
-                    request.setAttribute("resultat",a);
-                    resultatrequete b = new resultatrequete();
-                    b.setResult(requeteur.getDiscountCode());
-                    resultatrequete c = new resultatrequete();
-                     c.setResult(requeteur.getMicroMarket());
-                    request.setAttribute("dc",b);
-                    request.setAttribute("zip",c);
-                    request.getRequestDispatcher("detail.jsp").forward(request,response);
-                   
-                }
-                catch (Exception e){
-                    request.setAttribute("erreur", "erreur requete "+e);
-                    request.getRequestDispatcher("error.jsp").forward(request,response);
-                };
-        }     */      
+            try{
+            requeteur=new MagasinHelper();
+            resultatrequete a = new resultatrequete();
+            a.setClient(requeteur.getClient(Integer.parseInt(request.getParameter("Operation"))));
+            request.setAttribute("resultat",a);
+            resultatrequete b = new resultatrequete();
+            b.setResult(requeteur.getDiscountCode());
+            resultatrequete c = new resultatrequete();
+            c.setResult(requeteur.getMicroMarket());
+            request.setAttribute("dc",b);
+            request.setAttribute("zip",c);
+            request.getRequestDispatcher("detail.jsp").forward(request,response);
+            
+            }
+            catch (Exception e){
+            request.setAttribute("erreur", "erreur requete "+e);
+            request.getRequestDispatcher("error.jsp").forward(request,response);
+            };
+            }
     }
     
 

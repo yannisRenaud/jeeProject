@@ -48,6 +48,12 @@
                 </thead>
                 <tbody>
                   <tr>
+                    <c:forEach items="${ clients }" var="client" varStatus="status">
+                        <tr>
+                        <td><c:out value="${ client.id }" /></td>
+                        <td><c:out value="${ client.name }" /></td>
+                        </tr>
+                    </c:forEach>
                         <%List <Object> res=resultat.getResult();
                             for(Object  ligne : res){
                          out.println("<TR>");           

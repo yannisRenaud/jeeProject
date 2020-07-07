@@ -13,7 +13,7 @@ public class Customer  implements java.io.Serializable {
      //private DiscountCode discountCode;//pour mapping xml==>dans ce cas, modifier les méthodes
      private char discountCode;
      private String zip;
-     private String name;
+     private String name;   
      private String addressline1;
      private String addressline2;
      private String city;
