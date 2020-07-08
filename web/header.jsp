@@ -12,16 +12,14 @@
     <div class="row" id="navMenu">
         <div class="col-10 mt-2">
              <nav class="nav">
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-home"></span> Accueil</a>
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Gestion des clients</a>
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-list-alt"></span> Gestion des produits </a>
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-usd"></span> Gestion des ventes </a>
-                
-                     
+                <a class="nav-link" href="Index.htm"><span class="glyphicon glyphicon-home"></span> Accueil</a>
+                <a class="nav-link" href="customerManagement.htm"><span class="glyphicon glyphicon-user"></span> Gestion des clients</a>
+                <a class="nav-link" href="productManagement.htm"><span class="glyphicon glyphicon-list-alt"></span> Gestion des produits </a>
+                <a class="nav-link" href="saleManagement.htm"><span class="glyphicon glyphicon-usd"></span> Gestion des ventes </a>
              </nav>
         </div>
         <div class="col-2 mt-2">
-             <button type="button" class="btn btn-danger">Deconnexion</button>
+             <button type="button" href="logout.htm" class="btn btn-danger">Deconnexion</button>
         </div>   
     </div>
    

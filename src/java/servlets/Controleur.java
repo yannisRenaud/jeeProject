@@ -93,6 +93,18 @@ public class Controleur extends HttpServlet {
                     e.printStackTrace();
                 }
             break;
+               case "Afficher tous les produits" :
+                try{
+                requeteur=new MagasinHelper();
+                resultatrequete a = new resultatrequete();
+                a.setResult(requeteur.getClients());
+                request.setAttribute("resultat",a);//déclaration de mon javabean dans mes paramètres POST
+                request.getRequestDispatcher("resultat.jsp").forward(request,response);//renvoie mon résultat à la page resultat.jsp affichée par le navigateur client
+                }
+                catch (SQLException e){
+                    e.printStackTrace();
+                }
+            break;
             case "inserer un enregistrement" :
                 try{
                     requeteur=new MagasinHelper();
