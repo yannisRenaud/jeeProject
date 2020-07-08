@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
- <%@page import="java.util.*" %>
+<%@page import="java.util.*" %>
 <%@page import="modele.*" %>
 <jsp:useBean id="resultat" class="beans.resultatrequete" scope="request" />
 <!DOCTYPE html>

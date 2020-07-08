@@ -4,42 +4,18 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
-    <!-- <dependencies>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>3.2.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>3.2.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>3.2.7.RELEASE</version>
-        </dependency>
-    </dependencies>-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <servlet>
-        <servlet-name>Controleur</servlet-name>
-        <servlet-class>servlets.Controleur</servlet-class>
-    </servlet>
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Controleur</servlet-name>
-        <url-pattern>/Controleur</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
+        <url-pattern></url-pattern>     
     </servlet-mapping>
     <session-config>
         <session-timeout>
