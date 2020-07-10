@@ -12,7 +12,7 @@ public class PurchaseOrder  implements java.io.Serializable {
 
 
      private int orderNum;
-  // private int customerId;
+     private int customerId;
      private Customer customer;
      private int productId;
      private Short quantity;
@@ -48,13 +48,13 @@ public class PurchaseOrder  implements java.io.Serializable {
     public void setOrderNum(int orderNum) {
         this.orderNum = orderNum;
     }
-   /* public int getCustomerId() {
+    public int getCustomerId() {
         return this.customerId;
-    }*/
+    }
     
-   /* public void setCustomerId(int customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
-    }*/
+    }
     public int getProductId() {
         return this.productId;
     }
