@@ -36,7 +36,11 @@
                    </div>
                  <div class="col-4">
                         <label for="inputIdClient">Id du fabriquant</label>
-                        <input type="number" class="form-control" name="idFabriquant" id="inputIdClient"  required>                  
+                         <select type="number" class="form-control" name="idFabriquant" id="inputIdClient"  style="height: 30px" required >
+                                 <c:forEach items="${fabriquants}" var="fabriquant" >
+                                     <option>${fabriquant.manufacturerId}</option>
+                                 </c:forEach>
+                         </select>                 
                  </div>                
               </div>
              

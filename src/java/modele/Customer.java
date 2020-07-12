@@ -1,5 +1,6 @@
 package modele;
-// Generated 10 mai 2018 18:03:51 by Hibernate Tools 4.3.1
+
+// Generated 12 juin 2020 15:22:25 by Hibernate Tools 4.3.1
 
 
 
@@ -10,10 +11,9 @@ public class Customer  implements java.io.Serializable {
 
 
      private int customerId;
-     //private DiscountCode discountCode;//pour mapping xml==>dans ce cas, modifier les méthodes
      private char discountCode;
      private String zip;
-     private String name;   
+     private String name;
      private String addressline1;
      private String addressline2;
      private String city;
@@ -46,19 +46,7 @@ public class Customer  implements java.io.Serializable {
        this.email = email;
        this.creditLimit = creditLimit;
     }
-      public Customer(int customerId, String name,String addressline1, String phone, String discountCode, String zip) {
-       this.customerId = customerId;
-       this.discountCode = discountCode.charAt(0);
-       this.name = name;
-       this.addressline1 = addressline1;
-       this.addressline2 = addressline2;
-       this.city = city;
-       this.state = state;
-       this.phone = phone;
-       this.fax = fax;
-       this.email = email;
-       this.creditLimit = creditLimit;
-    }
+   
     public int getCustomerId() {
         return this.customerId;
     }

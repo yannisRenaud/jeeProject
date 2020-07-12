@@ -103,7 +103,7 @@
                         <input type="number" class="form-control" name="idProduit" id="inputIdCommandeUpdate" required>
                    </div>
                  <div class="col-4">
-                        <label for="inputIdClientUpdate">Id du fabriquant</label>
+                        <label for="inputIdClientUpdate">Id du fabriquant</label>                     
                         <input type="number" class="form-control" name="idFabriquant" id="inputIdClientUpdate"  required>                  
                  </div>                
               </div>

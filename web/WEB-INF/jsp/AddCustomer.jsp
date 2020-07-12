@@ -29,24 +29,24 @@
                     <div class="row justify-content-md-center mt-2">
 
                         <div class="col-4">
-                            <label for="inputIdClientUpdate">Numéro client</label>
+                            <label for="inputIdClient">Numéro client</label>
                             <input type="number" class="form-control" name="customerId" id="inputIdClient" required>
                         </div>
                         <div class="col-4">
-                            <label for="inputDiscountCodeUpdate">Discount Code</label>
+                            <label for="inputDiscountCode">Discount Code</label>
                             <select type="text" class="form-control" name="discountCode" id="inputDiscountCode"  style="height: 30px" required>
                                  <c:forEach items="${codes}" var="code" >
                                      <option>${code.discountCode}</option>
                                  </c:forEach>
                             </select>
                         </div> 
-                            
+                             
                     </div>
 
 
                     <div class="row justify-content-md-center mt-2">
                         <div class="col-4">
-                            <label for="inputZipUpdate">Zip</label>
+                            <label for="inputZip">Zip</label>
                              <select type="text" class="form-control" name="zip" id="inputZip" style="height: 30px" >
                                  <c:forEach items="${zips}" var="zip" >
                                      <option>${zip.zipCode}</option>
@@ -54,7 +54,7 @@
                             </select>
                         </div>
                         <div class="col-4">             
-                            <label for="inputNameUpdate">Nom</label>
+                            <label for="inputName">Nom</label>
                             <input type="text" class="form-control" name="name" id="inputName" required>
                         </div>
                     </div>
@@ -62,11 +62,11 @@
 
                     <div class="row justify-content-md-center mt-2">
                         <div class="col-4">
-                            <label for="inputAddressline1Update">adresse 1</label>
+                            <label for="inputAddressline1">adresse 1</label>
                             <input type="text" class="form-control" name="addressline1" id="inputAddressline1" required>       
                         </div>   
                         <div class="col-4">
-                            <label for="inputAddressline2Update">adresse 2</label>
+                            <label for="inputAddressline2">adresse 2</label>
                             <input type="text" class="form-control" name="addressline2" id="inputAddressline2" >
                         </div>
                     </div>
@@ -74,36 +74,36 @@
 
                     <div class="row justify-content-md-center mt-2">
                         <div class="col-4">
-                            <label for="inputCityUpdate">Ville</label>
+                            <label for="inputCity">Ville</label>
                             <input type="text" class="form-control" name="city" id="inputCity" required>
                         </div>
 
                         <div class="col-4">
-                            <label for="inputStateUpdate">Region</label>
+                            <label for="inputState">Region</label>
                             <input type="text" class="form-control" name="state" id="inputState" required>
                         </div>
                     </div>
 
                     <div class="row justify-content-md-center mt-2">
                         <div class="col-4">
-                            <label for="inputPhoneUpdate">Telephone</label>
+                            <label for="inputPhone">Telephone</label>
                             <input type="text" class="form-control" name="phone" id="inputPhone" required>
                         </div>
 
                         <div class="col-4">
-                            <label for="inputFaxUpdate">Fax</label>
+                            <label for="inputFax">Fax</label>
                             <input type="text" class="form-control" name="fax" id="inputFax" required>
                         </div>
                     </div>
 
                     <div class="row justify-content-md-center mt-2">
                         <div class="col-4">
-                            <label for="inputEmailUpdate">Email</label>
+                            <label for="inputEmail">Email</label>
                             <input type="text" class="form-control" name="email" id="inputEmail" required>
                         </div>
 
                         <div class="col-4">
-                            <label for="inputCreditLimitUpdate">Limite de credit</label>
+                            <label for="inputCreditLimit">Limite de credit</label>
                             <input type="number" class="form-control" name="creditLimit" id="inputCreditLimit" required>
                         </div>
                     </div>
