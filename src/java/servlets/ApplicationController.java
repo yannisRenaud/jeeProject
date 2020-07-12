@@ -25,6 +25,8 @@ import beans.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import modele.Customer;
+import modele.DiscountCode;
+import modele.MicroMarket;
 import modele.Product;
 import modele.PurchaseOrder;
 import org.hibernate.Session;
@@ -105,7 +107,11 @@ public class ApplicationController {
      public ModelAndView AddCustomer(){
       
          if(user != null){
-            return new ModelAndView("AddCustomer");
+            Session session = createSession();
+            List<MicroMarket> zips = session.createQuery("From MicroMarket").list();
+            List<DiscountCode> codes = session.createQuery("From DiscountCode").list();
+            session.close();
+            return new ModelAndView("AddCustomer").addObject("zips", zips).addObject("codes", codes);
         }
         else{
             ModelAndView model = new ModelAndView("dashboard");

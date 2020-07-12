@@ -4,8 +4,7 @@
     Author     : lucas.relave
 --%>
 
-<%@ taglib prefix="cp" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="dc" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -35,16 +34,24 @@
                         </div>
                         <div class="col-4">
                             <label for="inputDiscountCodeUpdate">Discount Code</label>
-                            <input type="text" class="form-control" name="discountCode" id="inputDiscountCode"  required>
-
-                        </div>                
+                            <select type="text" class="form-control" name="discountCode" id="inputDiscountCode"  style="height: 30px" required>
+                                 <c:forEach items="${codes}" var="code" >
+                                     <option>${code.discountCode}</option>
+                                 </c:forEach>
+                            </select>
+                        </div> 
+                            
                     </div>
 
 
                     <div class="row justify-content-md-center mt-2">
                         <div class="col-4">
                             <label for="inputZipUpdate">Zip</label>
-                            <input type="text" class="form-control" name="zip" id="inputZip" required>
+                             <select type="text" class="form-control" name="zip" id="inputZip" style="height: 30px" >
+                                 <c:forEach items="${zips}" var="zip" >
+                                     <option>${zip.zipCode}</option>
+                                 </c:forEach>
+                            </select>
                         </div>
                         <div class="col-4">             
                             <label for="inputNameUpdate">Nom</label>

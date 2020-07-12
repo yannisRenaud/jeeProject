@@ -19,17 +19,8 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.spring-security-core-3.2.7.RELEASE.jar}</file>
-                </library>
-                <library dirs="200">
                     <file>${libs.jstl.classpath}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.spring-security-config-3.2.7.RELEASE.jar}</file>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.spring-security-web-3.2.7.RELEASE.jar}</file>
                 </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
