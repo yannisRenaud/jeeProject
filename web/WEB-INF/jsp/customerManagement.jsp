@@ -97,7 +97,7 @@
     
         <div class="row justify-content-md-center mt-2">
             <div class="col-12">
-                <form id="formulaireUpdate" action="UpdateClient.htm" method="POST">
+                <form id="formulaireUpdate" action="updateClient.htm" method="POST">
              
              
               <div class="row justify-content-md-center mt-2">
