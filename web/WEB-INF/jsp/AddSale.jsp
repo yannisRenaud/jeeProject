@@ -27,8 +27,6 @@
             <div class="col-12">
                 <form id="formulaireAdd" action="AddSaletest.htm" method="POST">
 
-                    <h1>Ajout d'une vente</h1>
-
                     <div class="row justify-content-md-center mt-2">
 
                         <div class="col-4">
@@ -37,7 +35,12 @@
                         </div>
                         <div class="col-4">
                             <label for="inputIdClient">Id du client</label>
-                            <input type="number" class="form-control" name="idClient" id="inputIdClient"  required>
+                             <select  type="number" class="form-control" name="idClient" id="inputIdClient" style="height: 30px" required >
+                                 <c:forEach items="${customers}" var="customer" >
+                                     <option>${customer.customerId}</option>
+                                 </c:forEach>
+                            </select>
+                            
 
                         </div>                
                     </div>
@@ -46,7 +49,11 @@
                     <div class="row justify-content-md-center mt-2">
                         <div class="col-4">
                             <label for="inputIdProduit">Id du produit</label>
-                            <input type="number" class="form-control" name="idProduit" id="inputIdProduit" required>
+                            <select type="number" class="form-control" name="idProduit" id="inputIdProduit" style="height: 30px" required >
+                                 <c:forEach items="${produits}" var="produit" >
+                                     <option>${produit.productId}</option>
+                                 </c:forEach>
+                            </select>
                         </div>
                         <div class="col-4">             
                             <label for="inputQuantite">Quantité</label>

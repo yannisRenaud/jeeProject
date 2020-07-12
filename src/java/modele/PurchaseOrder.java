@@ -1,5 +1,5 @@
 package modele;
-// Generated 10 mai 2018 18:03:51 by Hibernate Tools 4.3.1
+// Generated 12 juin 2020 15:22:25 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -27,12 +27,12 @@ public class PurchaseOrder  implements java.io.Serializable {
 	
     public PurchaseOrder(int orderNum, int customerId, int productId) {
         this.orderNum = orderNum;
-       // this.customerId = customerId;
+        this.customerId = customerId;
         this.productId = productId;
     }
     public PurchaseOrder(int orderNum, int customerId, int productId, Short quantity, BigDecimal shippingCost, Date salesDate, Date shippingDate, String freightCompany) {
        this.orderNum = orderNum;
-       //this.customerId = customerId;
+       this.customerId = customerId;
        this.productId = productId;
        this.quantity = quantity;
        this.shippingCost = shippingCost;
@@ -103,6 +103,7 @@ public Customer getCustomer(){
 public void setCustomer(Customer a){
     customer=a;
 }
+
 
 
 

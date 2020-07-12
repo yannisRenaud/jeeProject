@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import modele.Customer;
 import modele.DiscountCode;
+import modele.Manufacturer;
 import modele.MicroMarket;
 import modele.Product;
 import modele.PurchaseOrder;
@@ -221,6 +222,69 @@ public class ApplicationController {
         }
     
     }
+    
+     @RequestMapping(value="updateClient.htm",method=RequestMethod.POST)
+    public ModelAndView updateClient(@RequestParam("customerId") int customerId ,@RequestParam("discountCode") char discountCode , 
+                                    @RequestParam("zip") String zip , @RequestParam("name") String name ,
+                                    @RequestParam("addressline1") String addressline1 , @RequestParam("addressline2") String addressline2 ,
+                                    @RequestParam("city") String city , @RequestParam("state") String state ,
+                                    @RequestParam("phone") String phone , @RequestParam("fax") String fax ,
+                                    @RequestParam("email") String email , @RequestParam("creditLimit") Integer creditLimit ){
+        
+         if(user != null){
+            
+             
+           Transaction tx= null;  
+           Session session = createSession();
+           String message = null;
+           try 
+           {              
+                tx= session.beginTransaction();
+             
+               List<Customer> customers = session.createQuery("From Customer Where customerId= :num").setParameter("num", customerId).list();
+               
+               if(customers.size() == 1 ){
+                   Customer customer = customers.get(0);
+                    customer.setCustomerId(customerId);
+                    customer.setDiscountCode(discountCode);
+                    customer.setZip(zip);
+                    customer.setName(name);
+                    customer.setAddressline1(addressline1);
+                    customer.setAddressline2(addressline2);
+                    customer.setCity(city);
+                    customer.setState(state);
+                    customer.setPhone(phone);
+                    customer.setFax(fax);
+                    customer.setEmail(email);
+                    customer.setCreditLimit(creditLimit);
+                    session.save(customer);
+                    session.flush();
+                    tx.commit();
+                     message = "Update réussie";
+               }
+               else{
+                   message = "Il y a 0 ou plusieurs clients avec ce numéro";
+               }
+               
+
+           }
+           catch(Exception e){
+               if (tx!= null) {tx.rollback();}
+               System.out.println(e.getMessage());
+                message = "Erreur : " +e.getMessage();
+           }
+         
+            
+          
+            return  new ModelAndView("resultVue").addObject("message", message);
+        }
+        else{
+            ModelAndView model = new ModelAndView();
+            model.setViewName("redirect:/");
+            return model;
+        }
+     
+    }
          
     
 //    Vente___________________________________________________________________________________________________________________
@@ -246,7 +310,10 @@ public class ApplicationController {
      public ModelAndView createVente(){
       
          if(user != null){
-            return new ModelAndView("AddSale");
+             Session session = createSession();
+            List<Product> produits = session.createQuery("From Product").list();
+            List<Customer> customers = session.createQuery("From Customer").list();
+            return new ModelAndView("AddSale").addObject("produits", produits).addObject("customers", customers);
         }
         else{
             ModelAndView model = new ModelAndView("dashboard");
@@ -364,8 +431,9 @@ public class ApplicationController {
          if(user != null){
             Session session = createSession();
             List<Product> products = session.createQuery("From Product").list();
+             List<Manufacturer> fabriquants = session.createQuery("From Manufacturer").list();
             session.close();           
-            return new ModelAndView("stockManagement").addObject("stocks", products);
+            return new ModelAndView("stockManagement").addObject("stocks", products).addObject("fabriquants", fabriquants);
         }
         else{
             ModelAndView model = new ModelAndView("dashboard");
@@ -374,12 +442,14 @@ public class ApplicationController {
         }
     }
     
-    //            View ajouter produit 
+    //          View ajouter produit 
      @RequestMapping("AddProductView.htm")
      public ModelAndView AddProductView(){
       
          if(user != null){
-            return new ModelAndView("AddProduct");
+             Session session = createSession();
+            List<Manufacturer> fabriquants = session.createQuery("From Manufacturer").list();
+            return new ModelAndView("AddProduct").addObject("fabriquants", fabriquants);
         }
         else{
             ModelAndView model = new ModelAndView("dashboard");
